@@ -36,10 +36,10 @@
     "checked_at": "2026-06-21T16:49:55.990Z"
   },
   "Farming": {
-    "signal": "Wednesday, August 20, 2025",
-    "version": "Wednesday, August 20, 2025",
-    "tree_axe_relevant": null,
-    "checked_at": "2026-06-21T16:49:56.732Z"
+    "signal": "Tuesday, July 28, 2026",
+    "version": "v1.3.0",
+    "tree_axe_relevant": false,
+    "checked_at": "2026-07-29T11:31:19.775Z"
   },
   "Biomes O' Plenty": {
     "signal": "Thursday, May 21, 2026",
