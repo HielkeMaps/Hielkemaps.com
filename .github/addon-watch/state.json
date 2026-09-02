@@ -6,10 +6,10 @@
     "checked_at": "2026-06-21T16:49:54.396Z"
   },
   "RealismCraft": {
-    "signal": "Tuesday, April 7, 2026",
-    "version": "Tuesday, April 7, 2026",
-    "tree_axe_relevant": null,
-    "checked_at": "2026-06-21T16:49:54.812Z"
+    "signal": "Wednesday, September 2, 2026",
+    "version": "2.5",
+    "tree_axe_relevant": false,
+    "checked_at": "2026-09-02T13:30:57.899Z"
   },
   "Tinker's Construct": {
     "signal": "Tuesday, October 21, 2025",
@@ -24,16 +24,16 @@
     "checked_at": "2026-06-21T16:49:55.519Z"
   },
   "Biomes Add-On": {
-    "signal": "Monday, August 31, 2026",
+    "signal": "Wednesday, September 2, 2026",
     "version": "2.0.0",
     "tree_axe_relevant": true,
-    "checked_at": "2026-08-31T16:59:59.776Z"
+    "checked_at": "2026-09-02T13:31:13.552Z"
   },
   "Biomes + Structures Add-On": {
-    "signal": "Wednesday, August 19, 2026",
-    "version": "August 19th, 2026",
-    "tree_axe_relevant": true,
-    "checked_at": "2026-08-19T09:40:59.521Z"
+    "signal": "Wednesday, September 2, 2026",
+    "version": "September 2nd, 2026",
+    "tree_axe_relevant": false,
+    "checked_at": "2026-09-02T13:31:38.432Z"
   },
   "Farming": {
     "signal": "Tuesday, July 28, 2026",
