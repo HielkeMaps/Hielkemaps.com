@@ -6,7 +6,8 @@ order: 1
 short-description: "Tired of chopping trees one block at a time? TreeCapitator brings instant forestry to Minecraft Bedrock!"
 download: "https://www.minecraft.net/en-us/marketplace/pdp?id=7093c4ee-0422-421c-a2ad-95140c96a1ac"
 wiki: true
-version: 1.8.0
+version: 2.0.0
+pics: 10
 ---
 
 Tired of spending hours chopping trees? Wish there was a faster way to harvest wood? Introducing TreeCapitator!
@@ -14,6 +15,8 @@ Fell entire trees with one swing!
 
 ##### Features:
 - **Instant tree felling**: Watch as entire trees break in seconds!
+- **Falling trees**: Trees topple over, sink into the ground or disintegrate, with sounds and camera shake!
+- **Auto Replant**: A sapling is planted at the stump automatically.
 - **Fully customizable**: Tons of settings to tailor the experience to your playstyle.
 - **Seamless integration**: 
   - Add to existing worlds

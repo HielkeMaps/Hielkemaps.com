@@ -2,6 +2,13 @@
 layout: wiki
 title: Integration Guide
 permalink: /wiki/treecapitator/integration
+custom-css: [treecapitator/wiki]
+hide-footer: true
+label: TreeCapitator Wiki
+hero: /media/wiki/treecapitator/background.jpg
+heading: Add-On Integration
+description: Make your Add-On's custom trees and axes work with TreeCapitator.
+prose: true
 ---
 
 ##### Hi there!

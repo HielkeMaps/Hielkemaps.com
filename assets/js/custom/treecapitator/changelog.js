@@ -1,11 +1,12 @@
 // Select all accordion buttons
-const accordionButtons = document.querySelectorAll('.btn.btn-primary.version-button');
+const accordionButtons = document.querySelectorAll('.version-button');
 
 // Function to toggle panel visibility
 const togglePanel = (button) => {
-  button.classList.toggle('active');
+  const open = button.classList.toggle('active');
+  button.setAttribute('aria-expanded', open);
   const panel = button.nextElementSibling;
-  panel.style.maxHeight = panel.style.maxHeight ? null : `${panel.scrollHeight}px`;
+  panel.style.maxHeight = open ? `${panel.scrollHeight}px` : null;
 };
 
 // Add click event listeners to all accordion buttons

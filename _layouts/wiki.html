@@ -1,7 +1,20 @@
 ---
 layout: default
 ---
-<div class="container" style="margin-top:100px">
-  <a type="button" href="./" class="btn btn-secondary mb-3">Back</a>
+<div class="container wiki-page" style="margin-top:100px">
+  <a type="button" href="./" class="btn btn-secondary mb-3"><i class="fas fa-arrow-left me-1"></i> Back</a>
+  {% if page.heading %}
+  <header class="wiki-header{% if page.hero %} wiki-hero{% endif %}"{% if page.hero %} style="background-image: url('{{ site.baseurl }}{{ page.hero }}')"{% endif %}>
+    {% if page.label %}<span class="wiki-label">{{ page.label }}</span>{% endif %}
+    <h1>{{ page.heading }}</h1>
+    {% if page.description %}<p>{{ page.description }}</p>{% endif %}
+  </header>
+  {% endif %}
+  {% if page.prose %}
+  <div class="wiki-prose">
 {{ content }}
+  </div>
+  {% else %}
+{{ content }}
+  {% endif %}
 </div>

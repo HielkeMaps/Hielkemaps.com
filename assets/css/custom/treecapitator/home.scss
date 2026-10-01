@@ -1,8 +1,221 @@
 ---
 ---
+
+@use "tc-wiki" as *;
+
 .page-heading {
   padding: 100px 0 150px !important;
   @media only screen and (min-width: 768px) {
     padding: 100px 0 !important;
+  }
+}
+
+body {
+  background: $tc-bg;
+}
+
+// Fade the hero into the page colour instead of white, and keep the subtitle readable over the art
+header.masthead.background-fade::before {
+  background: linear-gradient(to bottom, rgba($tc-bg, 0) 65%, $tc-bg 100%);
+}
+
+header.masthead .page-heading {
+  h1,
+  .subheading {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  }
+}
+
+.wiki-home {
+  padding-bottom: 3rem;
+}
+
+// Featured link back to the add-on page
+.addon-banner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding: 14px 28px 14px 14px;
+  background: linear-gradient(120deg, #2d5a32, #3d7a3f);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(45, 90, 50, 0.28);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(45, 90, 50, 0.35);
+
+    .addon-banner-arrow {
+      transform: translateX(4px);
+    }
+  }
+
+  img {
+    width: 176px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
+  }
+}
+
+.addon-banner-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.addon-banner-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #b9e3a6;
+}
+
+.addon-banner-title {
+  font-family: $tc-heading-font;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.addon-banner-version {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 12px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.addon-banner-desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+}
+
+.addon-banner-arrow {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.85);
+  transition: transform 0.2s ease;
+}
+
+// Wiki section links
+.wiki-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.wiki-grid-single {
+  grid-template-columns: 1fr;
+  margin-bottom: 40px;
+}
+
+.wiki-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px 16px 16px;
+  background: #fff;
+  border: 1px solid $tc-border;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(60, 45, 20, 0.06);
+  color: #212529;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: #212529;
+    text-decoration: none;
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(60, 45, 20, 0.12);
+
+    .wiki-card-arrow {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+  }
+}
+
+.wiki-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  font-size: 20px;
+  color: #fff;
+  background: var(--accent);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.18);
+}
+
+.wiki-card-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.wiki-card-title {
+  font-family: $tc-heading-font;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.wiki-card-desc {
+  color: #6b6458;
+  font-size: 14px;
+}
+
+.wiki-card-arrow {
+  color: #c9bea6;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+// Comments panel
+.wiki-comments {
+  padding: 32px;
+  background: #fff;
+  border: 1px solid $tc-border;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(60, 45, 20, 0.06);
+}
+
+@media only screen and (max-width: 575px) {
+  .addon-banner {
+    gap: 14px;
+    padding-right: 16px;
+
+    img {
+      width: 96px;
+      border-width: 2px;
+    }
+  }
+
+  .addon-banner-title {
+    font-size: 1.15rem;
+  }
+
+  .addon-banner-desc {
+    display: none;
+  }
+
+  .wiki-comments {
+    padding: 20px 16px;
   }
 }

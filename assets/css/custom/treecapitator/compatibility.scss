@@ -1,0 +1,105 @@
+---
+---
+
+@use "tc-wiki" as *;
+
+.compat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.wiki-page a.compat-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 22px;
+    @include tc-card;
+    @include tc-card-hover;
+    color: $tc-text;
+    text-decoration: none;
+
+    &:hover {
+        color: $tc-text;
+        border-color: $tc-green;
+
+        .compat-link {
+            color: $tc-green;
+        }
+    }
+
+    h4 {
+        margin: 0;
+        font-size: 1.15rem;
+        line-height: 1.3;
+    }
+
+    p {
+        flex: 1;
+        margin: 10px 0 14px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: $tc-muted;
+    }
+}
+
+.compat-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.compat-link {
+    margin-top: 4px;
+    font-size: 13px;
+    color: $tc-border-strong;
+    transition: color 0.2s ease;
+}
+
+.compat-creator {
+    margin-top: 2px;
+    font-size: 14px;
+    color: $tc-muted;
+}
+
+.compat-partial {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: #f6ead0;
+    color: #8a5a0a;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.compat-tags {
+    display: flex;
+    gap: 6px;
+}
+
+.compat-tag {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+
+    i {
+        margin-right: 3px;
+        font-size: 11px;
+    }
+}
+
+.compat-tag-trees {
+    background: #dcefd3;
+    color: $tc-green-dark;
+}
+
+.compat-tag-axes {
+    background: #f0e0cc;
+    color: #7a4a1a;
+}

@@ -2,38 +2,54 @@
 layout: wiki
 title: TreeCapitator FAQ
 permalink: /wiki/treecapitator/faq
-custom-css: treecapitator/faq
+custom-css: [treecapitator/wiki, treecapitator/faq]
 hide-footer: true
+label: TreeCapitator Wiki
+hero: /media/wiki/treecapitator/background.jpg
+heading: FAQ
+description: Answers to the questions players ask most.
 ---
 
-<div class="fluid-container faq-section">
-  <h2 class="text-center header mb-5">Frequently Asked Questions</h2>
-  <div class="fluid-container">
-    <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-4">
-      <div class="faq shadow-xl">
-        <h5>What is TreeCapitator?</h5>
-        <p>
-          TreeCapitator is an Add-On for Minecraft Bedrock Edition that allows you to cut down entire trees by breaking just the bottom block. It significantly speeds up the process of gathering wood and clearing forests.
-        </p>
-      </div>
-      <div class="faq shadow-xl">
-        <h5>Does TreeCapitator work with all types of trees?</h5>
-        <p>
-          TreeCapitator works with all vanilla Minecraft trees and many custom trees from supported Add-Ons. You can configure which tree types are affected in the settings.
-        </p>
-      </div>
-      <div class="faq shadow-xl">
-        <h5>How do I configure TreeCapitator?</h5>
-        <p>
-          Configure TreeCapitator using the in-game configuration book. Craft it by combining a regular book with any sapling in a crafting grid.
-        </p>
-      </div>
-      <div class="faq shadow-xl">
-        <h5>Is TreeCapitator compatible with other Add-Ons?</h5>
-        <p>
-          Yes, TreeCapitator is designed to be compatible with many popular Minecraft Add-Ons. Check the <a href="compatibility" >Compatibility page</a> for a list of tested Add-Ons.
-        </p>
-      </div>
+<div class="faq-grid">
+    <div class="faq-card">
+        <h4>What is TreeCapitator?</h4>
+        <p>An Add-On for Minecraft Bedrock Edition that lets you cut down an entire tree by breaking just the bottom
+            log. It makes gathering wood and clearing forests a lot faster.</p>
     </div>
-  </div>
+
+    <div class="faq-card">
+        <h4>How do I configure TreeCapitator?</h4>
+        <p>Use the TreeCapitator book. You get one automatically, and if you lose it you can craft a new one by
+            combining a book with any sapling.</p>
+    </div>
+
+    <div class="faq-card">
+        <h4>Does TreeCapitator work with all types of trees?</h4>
+        <p>It works with all vanilla trees, Nether trees included, and with custom trees from many Add-Ons. In the
+            Axe Settings you can choose which logs each axe works on.</p>
+    </div>
+
+    <div class="faq-card">
+        <h4>Can I turn off the falling animation?</h4>
+        <p>Yes. Open Tree Falling in the settings and pick <strong>Break Instantly</strong>. You can also choose
+            <strong>Fall Straight Down</strong> or <strong>Disintegrate</strong> instead of falling over.</p>
+    </div>
+
+    <div class="faq-card">
+        <h4>Does TreeCapitator replant trees?</h4>
+        <p>It can. Turn on <strong>Auto Replant</strong> in the settings and a sapling is planted at the stump, taken
+            from the tree's drops or your inventory. It's off by default.</p>
+    </div>
+
+    <div class="faq-card">
+        <h4>Is TreeCapitator compatible with other Add-Ons?</h4>
+        <p>Yes, it works with many popular Add-Ons. See the <a href="compatibility">compatible Add-Ons</a> for the full
+            list.</p>
+    </div>
+</div>
+
+<div class="tc-note">
+    <i class="fab fa-discord"></i>
+    <p><strong>Question not answered here?</strong> Ask in the <a href="https://discord.gg/{{site.discord}}">Discord</a>
+        or leave a comment on the <a href="./">wiki home</a>.</p>
 </div>

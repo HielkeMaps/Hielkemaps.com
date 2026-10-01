@@ -67,22 +67,13 @@ layout: default
         {% endif %}
         <img src="{{site.baseurl}}/media{{page.url}}/thumbnail.jpg" class="img-fluid">
       </a>
-      <a href="{{site.baseurl}}/media{{page.url}}/pic_0.jpg" data-fancybox="media" class="col-sm-6 col-lg-4 mappic">
-        <img src="{{site.baseurl}}/media{{page.url}}/pic_0.jpg" class="img-fluid">
+      {% assign pic_count = page.pics | default: 5 %}
+      {% assign last_pic = pic_count | minus: 1 %}
+      {% for i in (0..last_pic) %}
+      <a href="{{site.baseurl}}/media{{page.url}}/pic_{{i}}.jpg" data-fancybox="media" class="col-sm-6 col-lg-4 mappic">
+        <img src="{{site.baseurl}}/media{{page.url}}/pic_{{i}}.jpg" class="img-fluid" loading="lazy">
       </a>
-      <a href="{{site.baseurl}}/media{{page.url}}/pic_1.jpg" data-fancybox="media" class="col-sm-6 col-lg-4 mappic">
-        <img src="{{site.baseurl}}/media{{page.url}}/pic_1.jpg" class="img-fluid">
-      </a>
-
-      <a href="{{site.baseurl}}/media{{page.url}}/pic_2.jpg" data-fancybox="media" class="col-sm-6 col-lg-4 mappic">
-        <img src="{{site.baseurl}}/media{{page.url}}/pic_2.jpg" class="img-fluid">
-      </a>
-      <a href="{{site.baseurl}}/media{{page.url}}/pic_3.jpg" data-fancybox="media" class="col-sm-6 col-lg-4 mappic">
-        <img src="{{site.baseurl}}/media{{page.url}}/pic_3.jpg" class="img-fluid">
-      </a>
-      <a href="{{site.baseurl}}/media{{page.url}}/pic_4.jpg" data-fancybox="media" class="col-sm-6 col-lg-4 mappic">
-        <img src="{{site.baseurl}}/media{{page.url}}/pic_4.jpg" class="img-fluid">
-      </a>
+      {% endfor %}
 
   </div>
 </div>

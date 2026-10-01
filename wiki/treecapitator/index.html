@@ -4,51 +4,86 @@ title: "TreeCapitator Wiki"
 background: "/media/wiki/treecapitator/background.jpg"
 description: "Welcome to the wiki for TreeCapitator, the Add-On that revolutionizes tree harvesting!"
 custom-css: treecapitator/home
+background-white: true
 hide-footer: true
 ---
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <a href="{{ site.baseurl }}{{page.url}}getting-started" class="btn btn-primary btn-lg btn-block mb-3">
-        <i class="fas fa-play-circle"></i> Getting Started
-      </a>
+<div class="container wiki-home">
+  {% assign tc = site.addons | where: "title", "TreeCapitator" | first %}
+  <a href="{{ site.baseurl }}{{ tc.url }}" class="addon-banner">
+    <img src="{{ site.baseurl }}/media{{ tc.url }}/thumbnail-compressed.jpg" alt="TreeCapitator">
+    <div class="addon-banner-text">
+      <span class="addon-banner-label">The Add-On</span>
+      <span class="addon-banner-title">TreeCapitator <span class="addon-banner-version">v{{ tc.version }}</span></span>
+      <span class="addon-banner-desc">{{ tc.short-description }}</span>
     </div>
-    <div class="col">
-      <a href="{{ site.baseurl }}{{page.url}}features" class="btn btn-success btn-lg btn-block mb-3">
-        <i class="fas fa-list"></i> Features
-      </a>
-    </div>
-    <div class="col">
-      <a href="{{ site.baseurl }}{{page.url}}faq" class="btn btn-light btn-lg btn-block mb-3">
-        <i class="fas fa-question-circle"></i> FAQ
-      </a>
-    </div>
-    <div class="col">
-      <a href="{{ site.baseurl }}{{page.url}}changelog" class="btn btn-dark btn-lg btn-block mb-3">
-        <i class="fas fa-clock"></i> Changelog
-      </a>
-    </div>
-    <div class="col">
-      <a href="{{ site.baseurl }}{{page.url}}compatibility" class="btn btn-warning btn-lg btn-block mb-3">
-        <i class="fas fa-puzzle-piece"></i> Compatible Add-Ons
-      </a>
-    </div>
-    <div class="col">
-      <a href="{{ site.baseurl }}{{page.url}}integration" class="btn btn-danger btn-lg btn-block mb-3">
-        <i class="fas fa-puzzle-piece"></i> Add-On Integration
-      </a>
-    </div>
-    <div class="col">
-      <a href="https://discord.gg/{{site.discord}}" class="btn btn-outline-primary btn-lg btn-block mb-3">
-        <i class="fab fa-discord"></i> Join Discord
-      </a>
-    </div>
+    <i class="fas fa-chevron-right addon-banner-arrow"></i>
+  </a>
+
+  <div class="wiki-grid">
+    <a href="{{ site.baseurl }}{{page.url}}getting-started" class="wiki-card" style="--accent: #0085be">
+      <span class="wiki-card-icon"><i class="fas fa-play"></i></span>
+      <span class="wiki-card-text">
+        <span class="wiki-card-title">Getting Started</span>
+        <span class="wiki-card-desc">Install it and fell your first tree</span>
+      </span>
+      <i class="fas fa-chevron-right wiki-card-arrow"></i>
+    </a>
+    <a href="{{ site.baseurl }}{{page.url}}features" class="wiki-card" style="--accent: #2f8a4c">
+      <span class="wiki-card-icon"><i class="fas fa-star"></i></span>
+      <span class="wiki-card-text">
+        <span class="wiki-card-title">Features</span>
+        <span class="wiki-card-desc">Everything TreeCapitator can do</span>
+      </span>
+      <i class="fas fa-chevron-right wiki-card-arrow"></i>
+    </a>
+    <a href="{{ site.baseurl }}{{page.url}}faq" class="wiki-card" style="--accent: #7a5aa6">
+      <span class="wiki-card-icon"><i class="fas fa-question"></i></span>
+      <span class="wiki-card-text">
+        <span class="wiki-card-title">FAQ</span>
+        <span class="wiki-card-desc">Answers to common questions</span>
+      </span>
+      <i class="fas fa-chevron-right wiki-card-arrow"></i>
+    </a>
+    <a href="{{ site.baseurl }}{{page.url}}changelog" class="wiki-card" style="--accent: #56636e">
+      <span class="wiki-card-icon"><i class="fas fa-clock-rotate-left"></i></span>
+      <span class="wiki-card-text">
+        <span class="wiki-card-title">Changelog</span>
+        <span class="wiki-card-desc">What's new in every version</span>
+      </span>
+      <i class="fas fa-chevron-right wiki-card-arrow"></i>
+    </a>
+    <a href="{{ site.baseurl }}{{page.url}}compatibility" class="wiki-card" style="--accent: #c97d0a">
+      <span class="wiki-card-icon"><i class="fas fa-puzzle-piece"></i></span>
+      <span class="wiki-card-text">
+        <span class="wiki-card-title">Compatible Add-Ons</span>
+        <span class="wiki-card-desc">Add-Ons that are supported</span>
+      </span>
+      <i class="fas fa-chevron-right wiki-card-arrow"></i>
+    </a>
+    <a href="{{ site.baseurl }}{{page.url}}integration" class="wiki-card" style="--accent: #c8414c">
+      <span class="wiki-card-icon"><i class="fas fa-code"></i></span>
+      <span class="wiki-card-text">
+        <span class="wiki-card-title">Add-On Integration</span>
+        <span class="wiki-card-desc">Make your Add-On compatible</span>
+      </span>
+      <i class="fas fa-chevron-right wiki-card-arrow"></i>
+    </a>
   </div>
-   <br>
+  <div class="wiki-grid wiki-grid-single">
+    <a href="https://discord.gg/{{site.discord}}" class="wiki-card" style="--accent: #5865f2">
+      <span class="wiki-card-icon"><i class="fab fa-discord"></i></span>
+      <span class="wiki-card-text">
+        <span class="wiki-card-title">Join the Discord</span>
+        <span class="wiki-card-desc">Get help, share ideas and hear about updates first</span>
+      </span>
+      <i class="fas fa-chevron-right wiki-card-arrow"></i>
+    </a>
+  </div>
+
   <!-- Comments -->
-   <div class="bg-[#fff2d5] rounded-lg p-8 drop-shadow-lg">
-   <h2 class="text-center">Got tips or suggestions? Tell me here!</h2>
+  <div class="wiki-comments">
+    <h2 class="text-center">Got tips or suggestions? Tell me here!</h2>
     <script async src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
     <hyvor-talk-comments website-id="10730" page-url="{{site.domain}}{{ page.url }}" page-id="{{page.url}}" settings='{
     "profiles": {
@@ -57,5 +92,5 @@ hide-footer: true
     "top_widget": "none"
   }'>
     </hyvor-talk-comments>
-    </div>
+  </div>
 </div>

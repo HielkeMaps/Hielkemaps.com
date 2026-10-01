@@ -1,0 +1,282 @@
+---
+---
+// Common styles for every TreeCapitator wiki page that uses the wiki layout
+
+@use "tc-wiki" as *;
+
+// wiki.css loads after this file, so out-specify its body rule
+html body {
+    background-color: $tc-bg;
+}
+
+.wiki-page {
+    padding-bottom: 4rem;
+
+    > .btn-secondary {
+        padding: 8px 16px;
+        font-size: 13px;
+        color: #4a4438;
+        background: #fff;
+        border: 1px solid $tc-border;
+        box-shadow: $tc-shadow;
+
+        &:hover {
+            color: $tc-text;
+            background: #fff;
+            border-color: $tc-border-strong;
+        }
+    }
+
+    a:not(.btn) {
+        color: $tc-green;
+    }
+}
+
+// Page header rendered by the wiki layout from front matter
+.wiki-header {
+    max-width: 680px;
+    margin: 8px auto 44px;
+    text-align: center;
+
+    h1 {
+        margin: 4px 0 12px;
+        font-size: 3rem;
+    }
+
+    p {
+        margin: 0;
+        font-size: 1.15rem;
+        color: $tc-muted;
+    }
+}
+
+// Coloured banner version of the header, using the wiki home's artwork
+.wiki-header.wiki-hero {
+    position: relative;
+    isolation: isolate;
+    max-width: none;
+    margin: 0 0 40px;
+    padding: 56px 24px 52px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center 35%;
+    box-shadow: 0 12px 30px rgba(45, 90, 50, 0.25);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(120deg, rgba(26, 52, 30, 0.9), rgba(45, 90, 50, 0.74) 55%, rgba(61, 122, 63, 0.5));
+    }
+
+    h1 {
+        color: #fff;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    p {
+        max-width: 620px;
+        margin: 0 auto;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .wiki-label {
+        color: $tc-green-light;
+    }
+}
+
+.wiki-label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $tc-green;
+}
+
+.tc-card {
+    @include tc-card;
+}
+
+.tc-section-title {
+    margin: 0 0 16px;
+    font-size: 1.35rem;
+}
+
+.tc-pill {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 999px;
+    background: $tc-green;
+    color: #fff;
+    font-family: $tc-heading-font;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+}
+
+// Callouts, replacing Bootstrap alerts
+.tc-note {
+    display: flex;
+    gap: 14px;
+    margin: 20px 0;
+    padding: 16px 20px;
+    @include tc-card;
+    border-left: 4px solid $tc-green;
+    color: $tc-muted;
+
+    > i {
+        margin-top: 3px;
+        color: $tc-green;
+        font-size: 18px;
+    }
+
+    strong {
+        color: $tc-text;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+// Tables (override wiki.css defaults)
+.wiki-page table {
+    @include tc-card;
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    font-family: inherit;
+    font-size: 15px;
+
+    th {
+        padding: 12px 16px;
+        background: $tc-surface-tint;
+        border-bottom: 1px solid $tc-border;
+        font-family: $tc-heading-font;
+        font-size: 14px;
+        font-weight: 800;
+    }
+
+    td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #f0e9da;
+        vertical-align: top;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tr:nth-child(even),
+    tr:hover {
+        background: none;
+    }
+
+    tbody tr:hover td {
+        background: #fcf9f3;
+        color: inherit;
+    }
+}
+
+// Long-form text pages (e.g. the integration guide)
+.wiki-prose {
+    @include tc-card;
+    padding: 40px 48px;
+    font-size: 16px;
+    line-height: 1.65;
+
+    h2 {
+        margin: 0 0 16px;
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        margin: 32px 0 12px;
+        font-size: 1.25rem;
+    }
+
+    h5 {
+        font-size: 1.25rem;
+    }
+
+    hr {
+        margin: 44px -48px 40px;
+        border: none;
+        border-top: 1px solid $tc-border;
+        opacity: 1;
+    }
+
+    ol,
+    ul {
+        padding-left: 1.4rem;
+
+        li {
+            margin-bottom: 6px;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 8px 8px 8px 0;
+        border-radius: 10px;
+        border: 1px solid $tc-border;
+    }
+}
+
+// Code
+.wiki-page {
+    :not(pre) > code {
+        padding: 2px 6px;
+        border-radius: 6px;
+        background: #f3ede0;
+        color: #8a4b0f;
+        font-size: 0.9em;
+    }
+
+    div.highlighter-rouge {
+        margin: 16px 0 24px;
+    }
+
+    .highlight pre {
+        margin: 0;
+        padding: 18px 20px;
+        border-radius: 12px;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .wiki-header h1 {
+        font-size: 2.3rem;
+    }
+
+    .wiki-header.wiki-hero {
+        padding: 40px 18px 36px;
+        border-radius: 16px;
+    }
+
+    .wiki-prose {
+        padding: 24px 18px;
+
+        hr {
+            margin-left: -18px;
+            margin-right: -18px;
+        }
+    }
+
+    .wiki-page table {
+        font-size: 13px;
+
+        th,
+        td {
+            padding: 10px;
+        }
+    }
+}

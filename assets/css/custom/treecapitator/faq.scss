@@ -1,6 +1,9 @@
 ---
 ---
 
+@use "tc-wiki" as *;
+
+// Legacy FAQ layout (still used by the VeinMiner FAQ)
 .faq-section {
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -14,5 +17,60 @@
 	.faq:hover {
 		transition: all 0.3s ease;
 		transform: scale(1.03);
+	}
+}
+
+// TreeCapitator FAQ
+.faq-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.faq-card {
+	position: relative;
+	padding: 22px 24px 22px 66px;
+	@include tc-card;
+
+	&::before {
+		content: "?";
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 9px;
+		background: $tc-green;
+		box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.18);
+		color: #fff;
+		font-family: $tc-heading-font;
+		font-weight: 800;
+	}
+
+	h4 {
+		margin: 4px 0 8px;
+		font-size: 1.1rem;
+		line-height: 1.35;
+	}
+
+	p {
+		margin: 0;
+		font-size: 15px;
+		line-height: 1.55;
+		color: $tc-muted;
+
+		strong {
+			color: $tc-text;
+		}
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.faq-grid {
+		grid-template-columns: 1fr;
 	}
 }

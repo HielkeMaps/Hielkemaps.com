@@ -1,0 +1,31 @@
+// Shared design tokens for the TreeCapitator wiki pages
+
+$tc-bg: #f6f2e9;
+$tc-border: #e6dcc6;
+$tc-border-strong: #c9bea6;
+$tc-surface-tint: #faf6ee;
+$tc-text: #212529;
+$tc-muted: #6b6458;
+$tc-green-dark: #2d5a32;
+$tc-green: #3d7a3f;
+$tc-green-light: #b9e3a6;
+$tc-heading-font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$tc-radius: 14px;
+$tc-shadow: 0 1px 2px rgba(60, 45, 20, 0.06);
+$tc-shadow-hover: 0 10px 24px rgba(60, 45, 20, 0.12);
+
+@mixin tc-card {
+    background: #fff;
+    border: 1px solid $tc-border;
+    border-radius: $tc-radius;
+    box-shadow: $tc-shadow;
+}
+
+@mixin tc-card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $tc-shadow-hover;
+    }
+}
