@@ -1,0 +1,28 @@
+{% comment %}
+  Wiki sidebar (wide screens only). Usage: {% include wiki-nav.html wiki="treecapitator" %}
+  Pages come from _data/wiki_nav.yml.
+{% endcomment %}
+{% assign nav = site.data.wiki_nav[include.wiki] %}
+{% assign addon = site.addons | where: "title", nav.addon | first %}
+<aside class="wiki-nav">
+  <a class="wiki-nav-addon" href="{{ site.baseurl }}{{ addon.url }}">
+    <img src="{{ site.baseurl }}/media{{ addon.url }}/thumbnail-compressed.jpg" alt="{{ addon.title }}">
+    <span class="wiki-nav-addon-title">{{ addon.title }} <span class="wiki-nav-version">v{{ addon.version }}</span></span>
+    <span class="wiki-nav-addon-link">View Add-On <i class="fas fa-arrow-right"></i></span>
+  </a>
+
+  <nav class="wiki-nav-links">
+    <span class="wiki-nav-heading">Wiki</span>
+    {% for item in nav.pages %}
+    <a href="{{ site.baseurl }}{{ item.url }}" class="wiki-nav-link{% if page.url == item.url %} active{% endif %}"
+      style="--accent: {{ item.color }}"{% if page.url == item.url %} aria-current="page"{% endif %}>
+      <span class="wiki-nav-icon"><i class="{{ item.icon }}"></i></span>
+      {{ item.title }}
+    </a>
+    {% endfor %}
+  </nav>
+
+  <a class="wiki-nav-discord" href="https://discord.gg/{{ site.discord }}">
+    <i class="fab fa-discord"></i> Join the Discord
+  </a>
+</aside>

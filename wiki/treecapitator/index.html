@@ -1,15 +1,17 @@
 ---
-layout: page
+layout: wiki
 title: "TreeCapitator Wiki"
-background: "/media/wiki/treecapitator/background.jpg"
-description: "Welcome to the wiki for TreeCapitator, the Add-On that revolutionizes tree harvesting!"
-custom-css: treecapitator/home
-background-white: true
+custom-css: [treecapitator/wiki, treecapitator/home]
 hide-footer: true
+hide-back: true
+wiki-nav: treecapitator
+hero: /media/wiki/treecapitator/background.jpg
+heading: TreeCapitator Wiki
+description: "Everything you need to know about TreeCapitator."
 redirect_from: /tc
 ---
 
-<div class="container wiki-home">
+<div class="wiki-home">
   {% assign tc = site.addons | where: "title", "TreeCapitator" | first %}
   <a href="{{ site.baseurl }}{{ tc.url }}" class="addon-banner">
     <img src="{{ site.baseurl }}/media{{ tc.url }}/thumbnail-compressed.jpg" alt="TreeCapitator">

@@ -1,0 +1,188 @@
+---
+---
+
+@use "tc-wiki" as *;
+
+.integration-lead {
+    margin: 0 0 4px;
+    font-size: 1.15rem;
+    line-height: 1.55;
+    text-align: center;
+    color: #3d3a33;
+}
+
+.steps > .tc-note {
+    margin: 16px 0 24px;
+}
+
+.integration-done {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 8px 0 48px;
+    padding: 22px 26px;
+    border-radius: 16px;
+    background: linear-gradient(120deg, $tc-green-dark, $tc-green);
+    box-shadow: 0 10px 24px rgba(45, 90, 50, 0.25);
+    color: #fff;
+
+    > i {
+        font-size: 34px;
+        color: $tc-green-light;
+    }
+
+    h3 {
+        margin: 0 0 2px;
+        font-size: 1.4rem;
+    }
+
+    p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.88);
+    }
+}
+
+.good-to-know {
+    margin: 0 0 48px;
+    padding: 6px 22px;
+    list-style: none;
+    @include tc-card;
+
+    li {
+        display: flex;
+        gap: 14px;
+        padding: 14px 0;
+        line-height: 1.55;
+        color: #3d3a33;
+        border-bottom: 1px solid #f0e9da;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        > i {
+            width: 18px;
+            margin-top: 4px;
+            text-align: center;
+            color: $tc-green;
+        }
+    }
+}
+
+.reference-sub {
+    margin: -8px 0 16px;
+    color: $tc-muted;
+}
+
+// Collapsible reference sections
+.tc-details {
+    margin-bottom: 12px;
+    @include tc-card;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+
+    &:hover,
+    &[open] {
+        border-color: $tc-green;
+    }
+
+    summary {
+        display: flex;
+        align-items: center;
+        padding: 18px 22px;
+        cursor: pointer;
+        list-style: none;
+        font-family: $tc-heading-font;
+        font-size: 1.1rem;
+        font-weight: 800;
+        transition: background 0.2s ease, color 0.2s ease;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::after {
+            content: "\f078"; // chevron-down
+            margin-left: auto;
+            font-family: "Font Awesome 6 Free";
+            font-size: 14px;
+            font-weight: 900;
+            color: $tc-border-strong;
+            transition: transform 0.25s ease, color 0.2s ease;
+        }
+
+        &:hover {
+            background: #eef6ea;
+            color: $tc-green-dark;
+        }
+    }
+
+    &[open] summary {
+        background: #e3f0dd;
+        color: $tc-green-dark;
+
+        &::after {
+            transform: rotate(180deg);
+            color: $tc-green;
+        }
+    }
+}
+
+.tc-details-body {
+    padding: 18px 22px 22px;
+
+    > p {
+        margin: 0 0 4px;
+        line-height: 1.6;
+        color: #3d3a33;
+    }
+
+    table {
+        margin-bottom: 0;
+    }
+
+    td:first-child {
+        white-space: nowrap;
+    }
+}
+
+.req {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 1px 7px;
+    border-radius: 6px;
+    background: #dcefd3;
+    color: $tc-green-dark;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.vanilla-title {
+    margin-top: 18px !important;
+    font-weight: 700;
+}
+
+.vanilla-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+@media only screen and (max-width: 575px) {
+    .tc-details-body {
+        padding: 16px;
+
+        td:first-child {
+            white-space: normal;
+            word-break: break-word;
+        }
+    }
+
+    .integration-done {
+        padding: 20px;
+    }
+}

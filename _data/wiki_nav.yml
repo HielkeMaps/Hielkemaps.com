@@ -1,0 +1,32 @@
+# Sidebar navigation for wiki pages, keyed by wiki. A page opts in with `wiki-nav: <key>`.
+treecapitator:
+  addon: TreeCapitator
+  pages:
+    - title: Wiki home
+      url: /wiki/treecapitator/
+      icon: fas fa-house
+      color: "#2d5a32"
+    - title: Getting Started
+      url: /wiki/treecapitator/getting-started
+      icon: fas fa-play
+      color: "#0085be"
+    - title: Features
+      url: /wiki/treecapitator/features
+      icon: fas fa-star
+      color: "#2f8a4c"
+    - title: FAQ
+      url: /wiki/treecapitator/faq
+      icon: fas fa-question
+      color: "#7a5aa6"
+    - title: Changelog
+      url: /wiki/treecapitator/changelog
+      icon: fas fa-clock-rotate-left
+      color: "#56636e"
+    - title: Compatible Add-Ons
+      url: /wiki/treecapitator/compatibility
+      icon: fas fa-puzzle-piece
+      color: "#c97d0a"
+    - title: Add-On Integration
+      url: /wiki/treecapitator/integration
+      icon: fas fa-code
+      color: "#c8414c"

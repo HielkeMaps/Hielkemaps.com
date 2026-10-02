@@ -2,7 +2,14 @@
 layout: default
 ---
 <div class="container wiki-page" style="margin-top:100px">
-  <a type="button" href="./" class="btn btn-secondary mb-3"><i class="fas fa-arrow-left me-1"></i> Back</a>
+  {% if page.wiki-nav %}
+  <div class="wiki-with-nav">
+    {% include wiki-nav.html wiki=page.wiki-nav %}
+    <div class="wiki-main">
+  {% endif %}
+  {% unless page.hide-back %}
+  <a type="button" href="./" class="btn btn-secondary mb-3 wiki-back"><i class="fas fa-arrow-left me-1"></i> Back</a>
+  {% endunless %}
   {% if page.heading %}
   <header class="wiki-header{% if page.hero %} wiki-hero{% endif %}"{% if page.hero %} style="background-image: url('{{ site.baseurl }}{{ page.hero }}')"{% endif %}>
     {% if page.label %}<span class="wiki-label">{{ page.label }}</span>{% endif %}
@@ -16,5 +23,9 @@ layout: default
   </div>
   {% else %}
 {{ content }}
+  {% endif %}
+  {% if page.wiki-nav %}
+    </div>
+  </div>
   {% endif %}
 </div>

@@ -3,34 +3,18 @@
 
 @use "tc-wiki" as *;
 
-.page-heading {
-  padding: 100px 0 150px !important;
-  @media only screen and (min-width: 768px) {
-    padding: 100px 0 !important;
+// On wide screens the sidebar already links the add-on page and the Discord, so hide those here.
+@media only screen and (min-width: 1400px) {
+  .wiki-with-nav .addon-banner,
+  .wiki-with-nav .wiki-grid-single {
+    display: none;
+  }
+
+  .wiki-with-nav .wiki-grid {
+    margin-bottom: 40px;
   }
 }
 
-body {
-  background: $tc-bg;
-}
-
-// Fade the hero into the page colour instead of white, and keep the subtitle readable over the art
-header.masthead.background-fade::before {
-  background: linear-gradient(to bottom, rgba($tc-bg, 0) 65%, $tc-bg 100%);
-}
-
-header.masthead .page-heading {
-  h1,
-  .subheading {
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
-  }
-}
-
-.wiki-home {
-  padding-bottom: 3rem;
-}
-
-// Featured link back to the add-on page
 .addon-banner {
   display: flex;
   align-items: center;

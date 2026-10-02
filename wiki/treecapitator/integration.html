@@ -1,0 +1,261 @@
+---
+layout: wiki
+title: Integration Guide
+permalink: /wiki/treecapitator/integration
+custom-css: [treecapitator/wiki, treecapitator/integration]
+hide-footer: true
+label: TreeCapitator Wiki
+wiki-nav: treecapitator
+hero: /media/wiki/treecapitator/background.jpg
+heading: Add-On Integration
+description: Make your Add-On's trees work with TreeCapitator.
+---
+
+<div class="steps">
+    <p class="integration-lead">Dev mode scans your trees in-game and writes the registration code for you. Six steps
+        and you're done.</p>
+
+    <div class="tc-note">
+        <i class="fas fa-link"></i>
+        <p><strong>Every log must connect to the trunk</strong> through other logs, side by side or diagonally.
+            Logs floating inside the leaves, with no other log touching them, can't be detected, so trees built like
+            that can't be supported.</p>
+    </div>
+
+    <div class="tc-note">
+        <i class="fas fa-triangle-exclamation"></i>
+        <p><strong>Use a test world.</strong> Planting saplings in dev mode clears a large area around you.</p>
+    </div>
+
+    <section class="step">
+        <span class="step-number">1</span>
+        <div class="step-body">
+            <h3>Turn on dev mode</h3>
+            <p>In a world with cheats on, run this command. Your TreeCapitator book now opens the dev menu.</p>
+{% highlight text %}/scriptevent treecapitator:dev{% endhighlight %}
+        </div>
+    </section>
+
+    <section class="step">
+        <span class="step-number">2</span>
+        <div class="step-body">
+            <h3>Plant your trees</h3>
+            <p>Drop (Q) one of your saplings and TreeCapitator plants 10 of them around you. Bonemeal them to grow.</p>
+        </div>
+    </section>
+
+    <section class="step">
+        <span class="step-number">3</span>
+        <div class="step-body">
+            <h3>Scan them</h3>
+            <p>Hold a <strong>stick</strong> and break a grown tree. It doesn't break: it gets scanned and works with
+                TreeCapitator right away. Scan a few of each type to catch all their shapes.</p>
+        </div>
+    </section>
+
+    <section class="step">
+        <span class="step-number">4</span>
+        <div class="step-body">
+            <h3>Set the check item</h3>
+            <p>Open the book, tap your Add-On, then <strong>Check item</strong>. Drop (Q) an item only your Add-On
+                adds, like its guide book. TreeCapitator uses it to tell whether your Add-On is installed.</p>
+        </div>
+    </section>
+
+    <section class="step">
+        <span class="step-number">5</span>
+        <div class="step-body">
+            <h3>Export</h3>
+            <p>Tap <strong>Export</strong>. The registration code appears in chat and in the Content Log (turn it on
+                under Settings › Creator), ready to copy.</p>
+        </div>
+    </section>
+
+    <section class="step">
+        <span class="step-number">6</span>
+        <div class="step-body">
+            <h3>Paste it into your script</h3>
+            <p>Paste the code into your Add-On's script. It looks like this:</p>
+{% highlight typescript %}import { system, world } from "@minecraft/server";
+
+// TreeCapitator registration for "mynature"
+world.afterEvents.worldLoad.subscribe(() => {
+  system.sendScriptEvent("treecapitator:register_addon", `{"name":"mynature",...}`);
+});{% endhighlight %}
+        </div>
+    </section>
+
+    <div class="integration-done">
+        <i class="fas fa-circle-check"></i>
+        <div>
+            <h3>Done!</h3>
+            <p>Your trees now work with TreeCapitator. Hold an axe and look at a trunk: the outline shows exactly what
+                gets cut.</p>
+        </div>
+    </div>
+
+    <h2 class="tc-section-title">Good to know</h2>
+    <ul class="good-to-know">
+        <li><i class="fas fa-rotate"></i>
+            <span>Scanned trees are forgotten when the world reloads, so export before you
+            leave.</span></li>
+        <li><i class="fas fa-tag"></i>
+            <span>The exported <code>name</code> is your namespace. Change it to your Add-On's
+            real name, since players see it in TreeCapitator's settings. If the export was split into several events,
+            change <code>addonName</code> in each of them too.</span></li>
+        <li><i class="fas fa-hammer"></i>
+            <span>Custom axes work automatically when they have the <code>minecraft:is_axe</code> tag or their ID
+            ends in <code>_axe</code>. For anything else, see <a href="#axes">Axes</a> below.</span></li>
+        <li><i class="fas fa-leaf"></i>
+            <span>Does your Add-On change vanilla trees, like their leaves, logs or shape? Scan those trees too.
+            They're exported as vanilla overwrites, so TreeCapitator handles your version of the tree.</span></li>
+    </ul>
+
+    <h2 class="tc-section-title">Reference</h2>
+    <p class="reference-sub">Only needed if you want to write or tweak the registration yourself.</p>
+
+    <details class="tc-details" id="by-hand">
+        <summary>Writing it by hand</summary>
+        <div class="tc-details-body">
+            <p>Send <code>treecapitator:register_addon</code> with your Add-On as JSON when the world loads:</p>
+{% highlight typescript %}import { system, world } from "@minecraft/server";
+
+const myAddon = {
+  name: "My Nature Add-On",
+  item_check: "mynature:guide_book",
+  trees: [
+    {
+      id: "mynature:maple_log",
+      leaves: { types: ["mynature:maple_leaves"], range: 6, sides_required: 3 },
+      shape: { log_up_diagonal: true },
+    },
+  ],
+};
+
+world.afterEvents.worldLoad.subscribe(() => {
+  system.sendScriptEvent("treecapitator:register_addon", JSON.stringify(myAddon));
+});{% endhighlight %}
+            <table>
+                <thead>
+                    <tr><th>Field</th><th>What it does</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>name</code> <span class="req">required</span></td><td>Your Add-On's name, shown in TreeCapitator's settings.</td></tr>
+                    <tr><td><code>item_check</code></td><td>An item only your Add-On adds, used to tell whether it's installed.</td></tr>
+                    <tr><td><code>trees</code></td><td>Your trees, see <a href="#trees">Tree fields</a>.</td></tr>
+                    <tr><td><code>axes</code></td><td>Your axes, see <a href="#axes">Axes</a>.</td></tr>
+                    <tr><td><code>leaves.persistent_state</code></td><td>Default leaf decay state for all your trees, so you don't have to repeat it per tree.</td></tr>
+                    <tr><td><code>on_load</code></td><td>A command to run after your Add-On is registered.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </details>
+
+    <details class="tc-details" id="trees">
+        <summary>Tree fields</summary>
+        <div class="tc-details-body">
+            <table>
+                <thead>
+                    <tr><th>Field</th><th>What it does</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>id</code> <span class="req">required</span></td><td>The tree's log block ID.</td></tr>
+                    <tr><td><code>leaves.types</code> <span class="req">required</span></td><td>The tree's leaf block IDs.</td></tr>
+                    <tr><td><code>leaves.range</code> <span class="req">required</span></td><td>How far from the trunk to look for leaves, like vanilla leaf distance.</td></tr>
+                    <tr><td><code>leaves.sides_required</code> <span class="req">required</span></td><td>How many directions (north, east, south, west and up) need leaves for it to count as a tree. 1 to 5, not a leaf count.</td></tr>
+                    <tr><td><code>leaves.persistent_state</code></td><td>The block state that marks player-placed leaves, like <code>persistent_bit</code>. Those are left alone.</td></tr>
+                    <tr><td><code>leaves.exclusive_types</code></td><td>For leaf colors where each tree has only one, like red, orange and yellow poplar leaves. Stops a tree from taking a touching neighbour's leaves.</td></tr>
+                    <tr><td><code>variants</code></td><td>Other logs of the same tree, like a mossy log.</td></tr>
+                    <tr><td><code>attachments</code></td><td>Blocks hanging on the tree, like fruit, nests or vines. They pop off when the tree is cut.</td></tr>
+                    <tr><td><code>nether</code></td><td>Marks a Nether tree, which has its own leaf setting.</td></tr>
+                    <tr><td><code>lang</code></td><td>A different name to show in the settings: a language key or plain text. Defaults to the log's own name.</td></tr>
+                    <tr><td><code>shape.stem</code></td><td>A 2×2 trunk, like giant jungle trees.</td></tr>
+                    <tr><td><code>shape.leaf_diagonal</code></td><td>Leaves connect diagonally.</td></tr>
+                    <tr><td><code>shape.log_up_diagonal</code></td><td>Logs go diagonally upwards.</td></tr>
+                    <tr><td><code>shape.log_up_diagonal_side</code></td><td>Logs go diagonally upwards and sideways.</td></tr>
+                    <tr><td><code>shape.log_down</code></td><td>Branches that droop back down.</td></tr>
+                    <tr><td><code>shape.max_branch</code></td><td>The longest sideways branch. Only set it if your trees have sideways branches.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </details>
+
+    <details class="tc-details" id="axes">
+        <summary>Axes</summary>
+        <div class="tc-details-body">
+            <p>Axes are detected automatically when they have the <code>minecraft:is_axe</code> tag or their ID ends
+                in <code>_axe</code>. Only register an axe when neither is true, or to give it a nicer name in the
+                settings. Add it to your registration:</p>
+{% highlight typescript %}axes: [
+  { id: "mynature:lumber_cleaver" },
+  { id: "mynature:maple_axe", lang: "Maple Axe" },
+],{% endhighlight %}
+            <table>
+                <thead>
+                    <tr><th>Field</th><th>What it does</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>id</code> <span class="req">required</span></td><td>The axe's item ID.</td></tr>
+                    <tr><td><code>lang</code></td><td>A different name to show in the settings: a language key or plain text. Defaults to the axe's own name.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </details>
+
+    <details class="tc-details" id="large">
+        <summary>Large Add-Ons</summary>
+        <div class="tc-details-body">
+            <p>A script event holds about 2000 characters. If your registration is bigger, register the Add-On first,
+                then add trees and axes in batches. <code>addonName</code> must match <code>name</code> exactly. Dev
+                mode's export splits it for you.</p>
+{% highlight typescript %}const name = "My Nature Add-On";
+system.sendScriptEvent("treecapitator:register_addon", JSON.stringify({ name, item_check: "mynature:guide_book" }));
+system.sendScriptEvent("treecapitator:add_trees", JSON.stringify({ addonName: name, trees: [/* first batch */] }));
+system.sendScriptEvent("treecapitator:add_trees", JSON.stringify({ addonName: name, trees: [/* second batch */] }));
+system.sendScriptEvent("treecapitator:add_axes", JSON.stringify({ addonName: name, axes: [/* ... */] }));{% endhighlight %}
+        </div>
+    </details>
+
+    <details class="tc-details" id="vanilla">
+        <summary>Changing vanilla trees</summary>
+        <div class="tc-details-body">
+            <p>Send <code>treecapitator:overwrite_trees</code> with vanilla log IDs and only the fields you want to
+                change. Leaf types and variants you list are added to the vanilla ones; everything else keeps its
+                default. You can send it more than once.</p>
+{% highlight typescript %}system.sendScriptEvent(
+  "treecapitator:overwrite_trees",
+  JSON.stringify({
+    "minecraft:oak_log": {
+      leaves: { types: ["mynature:blossom_oak_leaves"] },
+      shape: { max_branch: 3 },
+    },
+  })
+);{% endhighlight %}
+            <p class="vanilla-title">Vanilla trees you can change:</p>
+            <div class="vanilla-list">
+                <code>minecraft:oak_log</code>
+                <code>minecraft:birch_log</code>
+                <code>minecraft:spruce_log</code>
+                <code>minecraft:jungle_log</code>
+                <code>minecraft:acacia_log</code>
+                <code>minecraft:dark_oak_log</code>
+                <code>minecraft:mangrove_log</code>
+                <code>minecraft:cherry_log</code>
+                <code>minecraft:pale_oak_log</code>
+                <code>minecraft:poplar_log</code>
+                <code>minecraft:crimson_stem</code>
+                <code>minecraft:warped_stem</code>
+            </div>
+        </div>
+    </details>
+</div>
+
+<script>
+    // Open a collapsed reference section when a link (or the URL) points at it.
+    function openLinkedSection() {
+        const target = location.hash && document.getElementById(location.hash.slice(1));
+        if (target && target.tagName === "DETAILS") target.open = true;
+    }
+    window.addEventListener("hashchange", openLinkedSection);
+    openLinkedSection();
+</script>
