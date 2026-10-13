@@ -1,0 +1,136 @@
+---
+layout: wiki
+title: Integration Guide
+permalink: /wiki/veinminer/integration
+custom-css: [veinminer/wiki, veinminer/integration]
+hide-footer: true
+label: VeinMiner Wiki
+wiki-nav: veinminer
+hero: /media/wiki/veinminer/background.jpg
+heading: Add-On Integration
+description: Make your Add-On's ores and pickaxes work with VeinMiner.
+---
+
+<div class="steps">
+    <p class="integration-lead">VeinMiner finds your ores and pickaxes by itself. There's no code to write: follow
+        these naming rules and you're done.</p>
+
+    <section class="step">
+        <span class="step-number">1</span>
+        <div class="step-body">
+            <h3>Name your ores</h3>
+            <p>Every block whose ID contains <code>_ore</code> is picked up as an ore, in any namespace except
+                <code>minecraft</code>. These all work:</p>
+{% highlight text %}mygeology:ruby_ore
+mygeology:deepslate_ruby_ore
+mygeology:ruby_ore_nether{% endhighlight %}
+        </div>
+    </section>
+
+    <section class="step">
+        <span class="step-number">2</span>
+        <div class="step-body">
+            <h3>Tag or name your pickaxes</h3>
+            <p>Every item with the <code>minecraft:is_pickaxe</code> tag is picked up as a pickaxe. So is every item
+                whose ID ends in <code>_pickaxe</code>, like <code>mygeology:ruby_pickaxe</code>, even without the
+                tag.</p>
+        </div>
+    </section>
+
+    <section class="step">
+        <span class="step-number">3</span>
+        <div class="step-body">
+            <h3>Give your ores a loot table</h3>
+            <p>VeinMiner drops exactly what your loot table drops, so Fortune and Silk Touch work the way you set them
+                up. It also reads the loot table to measure which pickaxe tier an ore needs, so a stone pickaxe can't
+                vein mine your diamond-tier ore.</p>
+        </div>
+    </section>
+
+    <section class="step">
+        <span class="step-number">4</span>
+        <div class="step-body">
+            <h3>Test it</h3>
+            <p>Load a world with both Add-Ons. Open the VeinMiner book, then <strong>Settings › Add-Ons</strong>:
+                your Add-On is listed with every ore and pickaxe VeinMiner found. Hold one of your pickaxes and look
+                at an ore: the outline shows the whole vein.</p>
+        </div>
+    </section>
+
+    <div class="integration-done">
+        <i class="fas fa-circle-check"></i>
+        <div>
+            <h3>Done!</h3>
+            <p>Your ores and pickaxes now work with VeinMiner, with no extra setup for players.</p>
+        </div>
+    </div>
+
+    <h2 class="tc-section-title">Good to know</h2>
+    <ul class="good-to-know">
+        <li><i class="fas fa-layer-group"></i>
+            <span>Blocks that differ only by <code>deepslate</code>, <code>deep</code>, <code>nether</code> or
+            <code>end</code> are one ore. A vein mixing <code>ruby_ore</code> and <code>deepslate_ruby_ore</code> is
+            mined in one go, and players see a single Ruby Ore in the settings.</span></li>
+        <li><i class="fas fa-tag"></i>
+            <span>Ores and pickaxes show the names from your Add-On's own <code>.lang</code> files, in the player's
+            language. Your Add-On is listed under its namespace, so <code>my_geology</code> shows as
+            <em>My Geology</em>.</span></li>
+        <li><i class="fas fa-palette"></i>
+            <span>The outline uses your ore's <code>minecraft:map_color</code>. Without one it's light grey.</span></li>
+        <li><i class="fas fa-gem"></i>
+            <span>Dropping items from a script instead of a loot table? VeinMiner's breaks don't fire your script, so
+            when the loot table is empty it guesses the drop from the ore's name: <code>mygeology:ruby</code>,
+            <code>mygeology:raw_ruby</code> or <code>mygeology:ruby_ingot</code>. A real loot table is more
+            reliable.</span></li>
+        <li><i class="fas fa-star"></i>
+            <span>Custom blocks can't drop XP orbs, so your ores give no XP when vein mined.</span></li>
+        <li><i class="fas fa-toggle-on"></i>
+            <span>Detection is on by default. Operators can turn it off under <strong>Settings › Add-Ons</strong>,
+            and players can switch single ores and pickaxes off.</span></li>
+    </ul>
+
+    <h2 class="tc-section-title">Reference</h2>
+    <p class="reference-sub">How VeinMiner decides what your ores and pickaxes can do.</p>
+
+    <details class="tc-details" id="tiers">
+        <summary>Mining tiers</summary>
+        <div class="tc-details-body">
+            <p>A pickaxe vein mines an ore when its tier is at least the ore's tier. Both are measured in-game when the
+                world loads:</p>
+            <table>
+                <thead>
+                    <tr><th>Tier</th><th>Ore needs at least</th><th>Pickaxe gets this tier when it can mine</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Wooden pickaxe</td><td>Stone</td></tr>
+                    <tr><td>2</td><td>Stone pickaxe</td><td>Iron ore</td></tr>
+                    <tr><td>3</td><td>Iron pickaxe</td><td>Diamond ore</td></tr>
+                    <tr><td>4</td><td>Diamond pickaxe</td><td>Obsidian</td></tr>
+                    <tr><td>5</td><td>Netherite pickaxe</td><td>Built-in support only</td></tr>
+                </tbody>
+            </table>
+            <p>An ore's tier is the lowest vanilla pickaxe that gets drops from its loot table. When that can't be
+                measured, any pickaxe can mine it. A pickaxe that can't be measured counts as diamond tier.</p>
+        </div>
+    </details>
+
+    <details class="tc-details" id="built-in">
+        <summary>Built-in support</summary>
+        <div class="tc-details-body">
+            <p>Some Add-Ons have built-in support instead, like Tinker's Construct and More Ores &amp; Tools. That's
+                for Add-Ons that can't follow the rules above, for example ores that don't have <code>_ore</code> in
+                their ID, or ores that should give XP. Does your Add-On need it?
+                <a href="{{site.baseurl}}/contact">Get in touch</a>.</p>
+        </div>
+    </details>
+</div>
+
+<script>
+    // Open a collapsed reference section when a link (or the URL) points at it.
+    function openLinkedSection() {
+        const target = location.hash && document.getElementById(location.hash.slice(1));
+        if (target && target.tagName === "DETAILS") target.open = true;
+    }
+    window.addEventListener("hashchange", openLinkedSection);
+    openLinkedSection();
+</script>

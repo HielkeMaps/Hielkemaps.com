@@ -61,6 +61,22 @@
     }
 }
 
+// Stand-in for a feature's picture: a big icon on the card's --accent colour
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.22), transparent 60%),
+        var(--accent, #{$wiki-accent});
+    color: #fff;
+    font-size: 3rem;
+
+    i {
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+    }
+}
+
 .feature-content {
     padding: 18px 20px 20px;
 
