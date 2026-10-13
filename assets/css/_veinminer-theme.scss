@@ -1,0 +1,25 @@
+// VeinMiner wiki colours: cool stone with the diamond-blue outline from the add-on art.
+// Load this before any addon-wiki partial so the theme module is configured first.
+
+@use "addon-wiki/theme" with (
+    $wiki-bg: #eef1f4,
+    $wiki-border: #d9dee4,
+    $wiki-border-strong: #b4bdc7,
+    $wiki-divider: #e8ecf0,
+    $wiki-surface-tint: #f5f7f9,
+    $wiki-row-hover: #f8fafb,
+    $wiki-text-body: #343a40,
+    $wiki-text-back: #444b53,
+    $wiki-muted: #5f6873,
+    $wiki-accent-deep: #0f2a40,
+    $wiki-accent-dark: #17496e,
+    $wiki-accent: #1f6fa8,
+    $wiki-accent-light: #a6e3f0,
+    $wiki-accent-soft: #d3e6f4,
+    $wiki-accent-tint: #e9f2f9,
+    $wiki-accent-tint-strong: #dbeaf5,
+    $wiki-timeline: #9cc3df,
+    $wiki-code-bg: #e6ebf0,
+    $wiki-code-text: #1b5a8a,
+    $wiki-shadow-color: rgb(20, 35, 50)
+);

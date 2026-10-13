@@ -1,0 +1,45 @@
+// Design tokens for the add-on wiki pages. The defaults are TreeCapitator's colours;
+// another wiki can override them with `@use "addon-wiki/theme" with (...)`, see veinminer/_theme.scss.
+
+$wiki-bg: #f6f2e9 !default;
+$wiki-border: #e6dcc6 !default;
+$wiki-border-strong: #c9bea6 !default;
+$wiki-divider: #f0e9da !default;
+$wiki-surface-tint: #faf6ee !default;
+$wiki-row-hover: #fcf9f3 !default;
+$wiki-text: #212529 !default;
+$wiki-text-body: #3d3a33 !default;
+$wiki-text-back: #4a4438 !default;
+$wiki-muted: #6b6458 !default;
+$wiki-accent-deep: #1a341e !default;
+$wiki-accent-dark: #2d5a32 !default;
+$wiki-accent: #3d7a3f !default;
+$wiki-accent-light: #b9e3a6 !default;
+$wiki-accent-soft: #dcefd3 !default;
+$wiki-accent-tint: #eef6ea !default;
+$wiki-accent-tint-strong: #e3f0dd !default;
+$wiki-timeline: #a8cd99 !default;
+$wiki-code-bg: #f3ede0 !default;
+$wiki-code-text: #8a4b0f !default;
+$wiki-shadow-color: rgb(60, 45, 20) !default;
+$wiki-heading-font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$wiki-radius: 14px !default;
+
+$wiki-shadow: 0 1px 2px rgba($wiki-shadow-color, 0.06);
+$wiki-shadow-hover: 0 10px 24px rgba($wiki-shadow-color, 0.12);
+
+@mixin tc-card {
+    background: #fff;
+    border: 1px solid $wiki-border;
+    border-radius: $wiki-radius;
+    box-shadow: $wiki-shadow;
+}
+
+@mixin tc-card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $wiki-shadow-hover;
+    }
+}

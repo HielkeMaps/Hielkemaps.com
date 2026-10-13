@@ -1,0 +1,140 @@
+@use "theme" as *;
+
+.new-pill {
+    padding: 4px 14px;
+    font-size: 1rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+}
+
+.feature-grid-large {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+
+    .feature-content {
+        padding: 22px 26px 26px;
+
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+.feature-grid-four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    @media only screen and (max-width: 991px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media only screen and (max-width: 575px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    @include tc-card;
+    @include tc-card-hover;
+    overflow: hidden;
+}
+
+.feature-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 1px solid $wiki-border;
+
+    &.pixelated {
+        image-rendering: pixelated;
+    }
+}
+
+.feature-content {
+    padding: 18px 20px 20px;
+
+    h4 {
+        margin: 0 0 6px;
+        font-size: 1.15rem;
+    }
+
+    p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.5;
+        color: $wiki-muted;
+    }
+}
+
+.features-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 28px 32px;
+    border-radius: 16px;
+    background: linear-gradient(120deg, $wiki-accent-dark, $wiki-accent);
+    box-shadow: 0 10px 24px rgba($wiki-accent-dark, 0.28);
+    color: #fff;
+
+    h3 {
+        margin: 0 0 4px;
+        font-size: 1.6rem;
+    }
+
+    p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.85);
+    }
+}
+
+.wiki-page a.features-cta-button {
+    padding: 14px 24px;
+    border-radius: 10px;
+    background: #fff;
+    color: $wiki-accent-dark;
+    font-family: $wiki-heading-font;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    i {
+        margin-left: 6px;
+        transition: transform 0.2s ease;
+    }
+
+    &:hover {
+        color: $wiki-accent-dark;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+
+        i {
+            transform: translateX(3px);
+        }
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .features-cta {
+        padding: 24px 20px;
+    }
+
+    .wiki-page a.features-cta-button {
+        width: 100%;
+        text-align: center;
+    }
+}

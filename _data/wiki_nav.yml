@@ -30,3 +30,35 @@ treecapitator:
       url: /wiki/treecapitator/integration
       icon: fas fa-code
       color: "#c8414c"
+
+veinminer:
+  addon: VeinMiner
+  pages:
+    - title: Wiki home
+      url: /wiki/veinminer/
+      icon: fas fa-house
+      color: "#17496e"
+    - title: Getting Started
+      url: /wiki/veinminer/getting-started
+      icon: fas fa-play
+      color: "#0085be"
+    - title: Features
+      url: /wiki/veinminer/features
+      icon: fas fa-star
+      color: "#2f8a4c"
+    - title: FAQ
+      url: /wiki/veinminer/faq
+      icon: fas fa-question
+      color: "#7a5aa6"
+    - title: Changelog
+      url: /wiki/veinminer/changelog
+      icon: fas fa-clock-rotate-left
+      color: "#56636e"
+    - title: Compatible Add-Ons
+      url: /wiki/veinminer/compatibility
+      icon: fas fa-puzzle-piece
+      color: "#c97d0a"
+    - title: Add-On Integration
+      url: /wiki/veinminer/integration
+      icon: fas fa-code
+      color: "#c8414c"

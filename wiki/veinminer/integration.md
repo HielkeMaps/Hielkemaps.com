@@ -2,6 +2,14 @@
 layout: wiki
 title: Integration Guide
 permalink: /wiki/veinminer/integration
+custom-css: [veinminer/wiki]
+hide-footer: true
+label: VeinMiner Wiki
+wiki-nav: veinminer
+hero: /media/wiki/veinminer/background.jpg
+heading: Add-On Integration
+description: Make your Add-On's custom ores and pickaxes work with VeinMiner.
+prose: true
 ---
 
 ##### Hi there!
@@ -146,8 +154,8 @@ In this example, we're registering an Add-On called "My Geological Add-On" with 
 
 Your pickaxes and ores will now show up in VeinMiner! 🎉
 
-<img src="{{site.baseurl}}/media{{page.url}}/custom_pickaxes.jpg" width="400">
-<img src="{{site.baseurl}}/media{{page.url}}/custom_ores.jpg" width="400">
+<img src="{{site.baseurl}}/media{{page.url}}/custom_pickaxes.jpg" alt="Custom pickaxes in the VeinMiner settings" width="400">
+<img src="{{site.baseurl}}/media{{page.url}}/custom_ores.jpg" alt="Custom ores in the VeinMiner settings" width="400">
 
 ___
 #### Best Practices

@@ -1,0 +1,116 @@
+@use "theme" as *;
+
+.compat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.wiki-page .compat-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 22px;
+    @include tc-card;
+    color: $wiki-text;
+    text-decoration: none;
+
+    // Cards for Add-Ons without a store link are plain divs
+    &:is(a) {
+        @include tc-card-hover;
+
+        &:hover {
+            color: $wiki-text;
+            border-color: $wiki-accent;
+
+            .compat-link {
+                color: $wiki-accent;
+            }
+        }
+    }
+
+    h4 {
+        margin: 0;
+        font-size: 1.15rem;
+        line-height: 1.3;
+    }
+
+    p {
+        flex: 1;
+        margin: 10px 0 14px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: $wiki-muted;
+    }
+}
+
+.compat-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.compat-link {
+    margin-top: 4px;
+    font-size: 13px;
+    color: $wiki-border-strong;
+    transition: color 0.2s ease;
+}
+
+.compat-creator {
+    margin-top: 2px;
+    font-size: 14px;
+    color: $wiki-muted;
+}
+
+.compat-partial {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: #f6ead0;
+    color: #8a5a0a;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.compat-tags {
+    display: flex;
+    gap: 6px;
+}
+
+.compat-tag {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+
+    i {
+        margin-right: 3px;
+        font-size: 11px;
+    }
+}
+
+.compat-tag-trees {
+    background: #dcefd3;
+    color: #2d5a32;
+}
+
+.compat-tag-axes {
+    background: #f0e0cc;
+    color: #7a4a1a;
+}
+
+.compat-tag-ores {
+    background: #d3ecf2;
+    color: #135566;
+}
+
+.compat-tag-pickaxes {
+    background: #e4e7eb;
+    color: #3f4852;
+}

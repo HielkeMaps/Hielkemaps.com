@@ -2,73 +2,86 @@
 layout: wiki
 title: VeinMiner Features
 permalink: /wiki/veinminer/features
-custom-css: treecapitator/features
+custom-css: [veinminer/wiki, veinminer/features]
 hide-footer: true
+label: VeinMiner Wiki
+wiki-nav: veinminer
+hero: /media/wiki/veinminer/background.jpg
+heading: Features
+description: Everything VeinMiner can do, from clearing whole veins to previewing them first.
 ---
 
 <div>
-    <div class="container">
-        <h1 class="text-center mb-5">⛏️ Unleash the Power of VeinMiner! 💎</h1>
-
-        <div class="feature-grid">
-            <div class="feature-card">
-                <img src="{{site.baseurl}}/media{{page.url}}/instant-mining.gif" alt="Instant Vein Mining"
-                    class="feature-image">
-                <div class="feature-content">
-                    <h4>Instant Vein Mining</h4>
-                    <p>One swing, and the whole vein is yours! Watch entire ore deposits vanish in seconds. Say goodbye to tedious ore mining!</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <img src="{{site.baseurl}}/media{{page.url}}/outline.gif" alt="Visual Vein Outline"
-                    class="feature-image">
-                <div class="feature-content">
-                    <h4>Visual Vein Outline</h4>
-                    <p>See before you mine! Our smart outline shows exactly which blocks are connected.</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <img src="{{site.baseurl}}/media{{page.url}}/fortune.jpg" alt="Fortune Enhancement"
-                    class="feature-image">
-                <div class="feature-content">
-                    <h4>Enhancement Ready</h4>
-                    <p>Fortune and Silk Touch work perfectly with every block in the vein. Get all the drops you deserve!</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <img src="{{site.baseurl}}/media{{page.url}}/activation-options.png" alt="Customizable Activation"
-                    class="feature-image">
-                <div class="feature-content">
-                    <h4>Customizable Activation</h4>
-                    <p>Stand tall or sneak low - you choose how to activate VeinMiner!</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <img style="image-rendering: pixelated;" src="{{site.baseurl}}/media{{page.url}}/compatibility.png"
-                    alt="Tool Compatibility" class="feature-image">
-                <div class="feature-content">
-                    <h4>Ultimate Compatibility</h4>
-                    <p>VeinMiner works seamlessly with Add-On ores and pickaxes!</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <img src="{{site.baseurl}}/media{{page.url}}/pickaxe-customization.jpg" alt="Pickaxe Customization"
-                    class="feature-image">
-                <div class="feature-content">
-                    <h4>Pickaxe Customization</h4>
-                    <p>Want certain pickaxes to work with specific ores? VeinMiner has got you covered!</p>
-                </div>
+    <div class="feature-grid feature-grid-large">
+        <div class="feature-card">
+            <video class="feature-image" autoplay muted loop playsinline aria-label="Instant Vein Mining">
+                <source src="{{site.baseurl}}/media{{page.url}}/instant-mining.mp4" type="video/mp4">
+            </video>
+            <div class="feature-content">
+                <h4>Instant Vein Mining</h4>
+                <p>One swing, and the whole vein is yours! Watch entire ore deposits vanish in seconds. Say goodbye to
+                    tedious ore mining!</p>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <a href=""
-                class="btn btn-success">Get VeinMiner Now!</a>
+        <div class="feature-card">
+            <video class="feature-image" autoplay muted loop playsinline aria-label="Visual Vein Outline">
+                <source src="{{site.baseurl}}/media{{page.url}}/outline.mp4" type="video/mp4">
+            </video>
+            <div class="feature-content">
+                <h4>Visual Vein Outline</h4>
+                <p>See before you mine! The outline shows exactly which blocks are connected, so you know what you're
+                    about to get.</p>
+            </div>
         </div>
+    </div>
+
+    <h2 class="tc-section-title">All features</h2>
+    <div class="feature-grid feature-grid-four">
+        <div class="feature-card">
+            <img src="{{site.baseurl}}/media{{page.url}}/fortune.jpg" alt="Enchantment Ready" class="feature-image"
+                loading="lazy">
+            <div class="feature-content">
+                <h4>Enchantment Ready</h4>
+                <p>Fortune and Silk Touch work on every block in the vein. Get all the drops you deserve!</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <img src="{{site.baseurl}}/media{{page.url}}/activation-options.png" alt="Customizable Activation"
+                class="feature-image" loading="lazy">
+            <div class="feature-content">
+                <h4>Customizable Activation</h4>
+                <p>Stand tall or sneak low: you choose how to activate VeinMiner.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <img src="{{site.baseurl}}/media{{page.url}}/pickaxe-customization.jpg" alt="Pickaxe Customization"
+                class="feature-image" loading="lazy">
+            <div class="feature-content">
+                <h4>Pickaxe Customization</h4>
+                <p>Want certain pickaxes to work only on certain ores? VeinMiner has you covered.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <img src="{{site.baseurl}}/media{{page.url}}/compatibility.png" alt="Ultimate Compatibility"
+                class="feature-image pixelated" loading="lazy">
+            <div class="feature-content">
+                <h4>Ultimate Compatibility</h4>
+                <p>Works with vanilla ores and pickaxes, plus custom ones from <a href="compatibility">many
+                        Add-Ons</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="features-cta">
+        <div>
+            <h3>Ready to start mining?</h3>
+            <p>Get VeinMiner on the Minecraft Marketplace.</p>
+        </div>
+        <a href="{{site.baseurl}}/addons/veinminer" class="features-cta-button">Get VeinMiner <i
+                class="fas fa-arrow-right"></i></a>
     </div>
 </div>

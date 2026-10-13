@@ -1,0 +1,211 @@
+@use "theme" as *;
+
+// Accordion, opened and closed by assets/js/custom/treecapitator/changelog.js
+.version-button {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.version-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+// Changelog: a timeline with one card per version
+$timeline: $wiki-timeline;
+$green-tint: $wiki-accent-tint;
+$green-tint-strong: $wiki-accent-tint-strong;
+
+.changelog {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+  padding-left: 40px;
+
+  // Timeline line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    bottom: 28px;
+    left: 13px;
+    width: 3px;
+    border-radius: 2px;
+    background: linear-gradient($wiki-accent, $timeline 30%, $wiki-border);
+  }
+}
+
+.version {
+  position: relative;
+  @include tc-card;
+  margin-bottom: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  // Timeline dot
+  &::before {
+    content: "";
+    position: absolute;
+    top: 21px;
+    left: -34px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid $timeline;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  &:hover {
+    border-color: $wiki-accent;
+
+    &::before {
+      border-color: $wiki-accent;
+    }
+  }
+
+  &:has(.version-button.active) {
+    border-color: $wiki-accent;
+    box-shadow: 0 8px 20px rgba($wiki-accent-dark, 0.12);
+
+    &::before {
+      background: $wiki-accent;
+      border-color: $wiki-accent;
+    }
+  }
+
+  // Latest release
+  &:first-child {
+    &::before {
+      background: $wiki-accent;
+      border-color: $wiki-accent;
+      box-shadow: 0 0 0 5px rgba($wiki-accent, 0.2);
+    }
+  }
+
+  .version-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 18px 22px;
+    border-radius: 13px;
+    background: none;
+    color: $wiki-text;
+    font-family: $wiki-heading-font;
+    font-size: 1.15rem;
+    font-weight: 800;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: $green-tint;
+      color: $wiki-accent-dark;
+
+      .version-chevron {
+        color: $wiki-accent;
+      }
+    }
+
+    &.active {
+      border-radius: 13px 13px 0 0;
+      background: $green-tint-strong;
+      color: $wiki-accent-dark;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $wiki-accent;
+      outline-offset: -2px;
+    }
+  }
+
+  .version-chevron {
+    margin-left: auto;
+    font-size: 14px;
+    color: $wiki-border-strong;
+    transition: transform 0.25s ease, color 0.2s ease;
+  }
+
+  .version-button.active .version-chevron {
+    transform: rotate(180deg);
+    color: $wiki-accent;
+  }
+
+  .version-content {
+    padding: 0;
+  }
+
+  .version-body {
+    padding: 6px 22px 18px;
+
+    ul {
+      margin: 0 0 8px;
+      padding-left: 20px;
+      color: $wiki-text-body;
+      line-height: 1.55;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    li::marker {
+      color: $wiki-accent;
+    }
+  }
+
+  h6 {
+    display: inline-block;
+    margin: 14px 0 8px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  // The change labels keep fixed colours (added = green) whatever the wiki's accent
+  .change-added {
+    background: #dcefd3;
+    color: #2d5a32;
+
+    + ul li::marker {
+      color: #3d7a3f;
+    }
+  }
+
+  .change-fixed {
+    background: #d6e9f6;
+    color: #145a85;
+
+    + ul li::marker {
+      color: #1f7ab3;
+    }
+  }
+
+  .change-changed {
+    background: #f6e6c4;
+    color: #8a5a0a;
+
+    + ul li::marker {
+      color: #c98a14;
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .changelog {
+    padding-left: 30px;
+
+    &::before {
+      left: 8px;
+    }
+  }
+
+  .version::before {
+    left: -29px;
+  }
+}

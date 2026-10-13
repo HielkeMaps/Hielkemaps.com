@@ -2,41 +2,54 @@
 layout: wiki
 title: VeinMiner Compatibility
 permalink: /wiki/veinminer/compatibility
+custom-css: [veinminer/wiki, veinminer/compatibility]
 hide-footer: true
+label: VeinMiner Wiki
+wiki-nav: veinminer
+hero: /media/wiki/veinminer/background.jpg
+heading: Compatible Add-Ons
+description: VeinMiner works with these Add-Ons' custom ores and pickaxes, on top of everything vanilla.
 ---
 
-<p>VeinMiner is designed to work seamlessly with various Minecraft Add-Ons. Below is a list of known compatible Add-Ons.</p>
+<div>
+    <div class="compat-grid">
+        <a class="compat-card" href="https://www.minecraft.net/en-us/marketplace/pdp?id=e79ada28-0939-4161-bfe4-e2ce0bf7d69c">
+            <div class="compat-top">
+                <h4>Tinker's Construct</h4>
+                <i class="fas fa-arrow-up-right-from-square compat-link"></i>
+            </div>
+            <span class="compat-creator">by FTB Studios</span>
+            <p>Compatible with Tinker's pickaxes and ores.</p>
+            <div class="compat-tags"><span class="compat-tag compat-tag-ores"><i class="fas fa-gem"></i> Ores</span><span class="compat-tag compat-tag-pickaxes"><i class="fas fa-hammer"></i> Pickaxes</span></div>
+        </a>
+        <a class="compat-card" href="https://www.minecraft.net/en-us/marketplace/pdp?id=2b36d3a3-a83c-4614-92aa-ca83cbee621e">
+            <div class="compat-top">
+                <h4>More Ores &amp; Tools</h4>
+                <i class="fas fa-arrow-up-right-from-square compat-link"></i>
+            </div>
+            <span class="compat-creator">by Netherpixel</span>
+            <p>Full support for all custom ores and pickaxes.</p>
+            <div class="compat-tags"><span class="compat-tag compat-tag-ores"><i class="fas fa-gem"></i> Ores</span><span class="compat-tag compat-tag-pickaxes"><i class="fas fa-hammer"></i> Pickaxes</span></div>
+        </a>
+        <div class="compat-card">
+            <div class="compat-top">
+                <h4>Weapons+</h4>
+            </div>
+            <span class="compat-creator">by 4K Studios</span>
+            <p>All custom pickaxes are supported.</p>
+            <div class="compat-tags"><span class="compat-tag compat-tag-pickaxes"><i class="fas fa-hammer"></i> Pickaxes</span></div>
+        </div>
+    </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Add-On Name</th>
-            <th>Creator</th>
-            <th>Remarks</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Tinker's Construct</td>
-            <td>FTB Studios</td>
-            <td>Compatible with Tinker's pickaxes and ores.</td>
-        </tr>
-        <tr>
-            <td>More Ores &amp; Tools</td>
-            <td>Netherpixel</td>
-            <td>Full support for all custom ores and pickaxes.</td>
-        </tr>
-        <tr>
-            <td>Weapons+</td>
-            <td>4K Studios</td>
-            <td>All custom pickaxes are supported.</td>
-        </tr>
-    </tbody>
-</table>
-
-<div class="alert alert-info" role="alert">
-    <strong>Note:</strong> Compatibility is based on the latest versions of both VeinMiner and the listed Add-Ons. Always ensure you're using the most recent updates for the best experience.
-</div>
-<div class="alert alert-success" role="alert">
-    <strong>Note:</strong> Is your Add-On compatible but not on the list? Let me know by <a href="{{site.baseurl}}/contact">contacting me</a>, and I'll be sure to add it here :)
+    <div class="tc-note">
+        <i class="fas fa-circle-info"></i>
+        <p>Compatibility is based on the latest versions of both VeinMiner and the listed Add-Ons. Make sure you're
+            using the most recent updates for the best experience.</p>
+    </div>
+    <div class="tc-note">
+        <i class="fas fa-puzzle-piece"></i>
+        <p><strong>Is your Add-On compatible but not on the list?</strong> Let me know by
+            <a href="{{site.baseurl}}/contact">contacting me</a> and I'll add it here. Making an Add-On? See the
+            <a href="integration">integration guide</a>.</p>
+    </div>
 </div>

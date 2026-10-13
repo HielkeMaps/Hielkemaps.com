@@ -1,0 +1,185 @@
+@use "theme" as *;
+
+.integration-lead {
+    margin: 0 0 4px;
+    font-size: 1.15rem;
+    line-height: 1.55;
+    text-align: center;
+    color: $wiki-text-body;
+}
+
+.steps > .tc-note {
+    margin: 16px 0 24px;
+}
+
+.integration-done {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 8px 0 48px;
+    padding: 22px 26px;
+    border-radius: 16px;
+    background: linear-gradient(120deg, $wiki-accent-dark, $wiki-accent);
+    box-shadow: 0 10px 24px rgba($wiki-accent-dark, 0.25);
+    color: #fff;
+
+    > i {
+        font-size: 34px;
+        color: $wiki-accent-light;
+    }
+
+    h3 {
+        margin: 0 0 2px;
+        font-size: 1.4rem;
+    }
+
+    p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.88);
+    }
+}
+
+.good-to-know {
+    margin: 0 0 48px;
+    padding: 6px 22px;
+    list-style: none;
+    @include tc-card;
+
+    li {
+        display: flex;
+        gap: 14px;
+        padding: 14px 0;
+        line-height: 1.55;
+        color: $wiki-text-body;
+        border-bottom: 1px solid $wiki-divider;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        > i {
+            width: 18px;
+            margin-top: 4px;
+            text-align: center;
+            color: $wiki-accent;
+        }
+    }
+}
+
+.reference-sub {
+    margin: -8px 0 16px;
+    color: $wiki-muted;
+}
+
+// Collapsible reference sections
+.tc-details {
+    margin-bottom: 12px;
+    @include tc-card;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+
+    &:hover,
+    &[open] {
+        border-color: $wiki-accent;
+    }
+
+    summary {
+        display: flex;
+        align-items: center;
+        padding: 18px 22px;
+        cursor: pointer;
+        list-style: none;
+        font-family: $wiki-heading-font;
+        font-size: 1.1rem;
+        font-weight: 800;
+        transition: background 0.2s ease, color 0.2s ease;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::after {
+            content: "\f078"; // chevron-down
+            margin-left: auto;
+            font-family: "Font Awesome 6 Free";
+            font-size: 14px;
+            font-weight: 900;
+            color: $wiki-border-strong;
+            transition: transform 0.25s ease, color 0.2s ease;
+        }
+
+        &:hover {
+            background: $wiki-accent-tint;
+            color: $wiki-accent-dark;
+        }
+    }
+
+    &[open] summary {
+        background: $wiki-accent-tint-strong;
+        color: $wiki-accent-dark;
+
+        &::after {
+            transform: rotate(180deg);
+            color: $wiki-accent;
+        }
+    }
+}
+
+.tc-details-body {
+    padding: 18px 22px 22px;
+
+    > p {
+        margin: 0 0 4px;
+        line-height: 1.6;
+        color: $wiki-text-body;
+    }
+
+    table {
+        margin-bottom: 0;
+    }
+
+    td:first-child {
+        white-space: nowrap;
+    }
+}
+
+.req {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 1px 7px;
+    border-radius: 6px;
+    background: $wiki-accent-soft;
+    color: $wiki-accent-dark;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.vanilla-title {
+    margin-top: 18px !important;
+    font-weight: 700;
+}
+
+.vanilla-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+@media only screen and (max-width: 575px) {
+    .tc-details-body {
+        padding: 16px;
+
+        td:first-child {
+            white-space: normal;
+            word-break: break-word;
+        }
+    }
+
+    .integration-done {
+        padding: 20px;
+    }
+}
