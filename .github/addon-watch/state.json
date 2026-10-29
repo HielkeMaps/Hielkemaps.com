@@ -42,10 +42,10 @@
     "checked_at": "2026-07-29T11:31:19.775Z"
   },
   "Biomes O' Plenty": {
-    "signal": "Thursday, May 21, 2026",
-    "version": "Thursday, May 21, 2026",
-    "tree_axe_relevant": null,
-    "checked_at": "2026-06-21T16:49:59.001Z"
+    "signal": "Wednesday, October 28, 2026",
+    "version": "October 28th, 2026",
+    "tree_axe_relevant": true,
+    "checked_at": "2026-10-29T15:59:44.400Z"
   },
   "More Ores & Tools": {
     "signal": "Friday, September 25, 2026",
