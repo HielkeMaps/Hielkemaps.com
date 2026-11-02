@@ -17,7 +17,7 @@ crank: 5000
 inserver: true
 trial: "https://trial.stickypiston.co/map/parkourvolcano"
 server: "https://stickypiston.co/hielkemaps/parkourvolcano"
-version: 1.2.3
+version: 1.2.4
 ---
 
 Welcome to **Parkour Volcano**, where your goal is to reach the top of an active volcano!
